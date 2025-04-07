@@ -1,0 +1,134 @@
+<?php
+session_start(); // Start session
+
+// Check if the user is logged in
+$isLoggedIn = isset($_SESSION['username']);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Site</title>
+    <link rel="stylesheet" href="Main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- -----------------------------------------------Navbar ------------------------------------------ -->
+    <nav class="navbar navbar-expand-lg " id="main-nav">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="main.php" id="brown">
+                <img src="https://img.freepik.com/free-vector/food-shopping-logo-template-design_460848-10299.jpg?size=626&ext=jpg&ga=GA1.1.2082370165.1711411200&semt=ais"
+                    id="nav-img">
+                Fast Foodzz
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mx-5 mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="main.php" id="brown">Home</a></li>
+                    <li class="nav-item"><a class="nav-link " href="Menu.html">Our Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Deal.html">Deals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Cart.php">Your Cart</a></li>
+                </ul>
+
+                <!-- Login/Signup OR Welcome User -->
+                <div class="d-flex">
+                    <?php if ($isLoggedIn): ?>
+                        <span class="navbar-text me-3 text-light">Welcome, <?php echo $_SESSION['username']; ?>!</span>
+                        <a href="logout.php" class="btn btn-danger" style="z-index: 1050; position: relative;">Sign Out</a>
+                    <?php else: ?>
+                        <a href="login.php" class="btn text-brown-500 btn-outline-light me-2" style="z-index: 1050; position: relative;">Login</a>
+                        <a href="signup.php" class="btn btn-light" style="z-index: 1050; position: relative;">Sign Up</a>
+                    <?php endif; ?>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Include your Carousel and other content here -->
+
+    <!-- ---------------------------------------------Carousel ------------------------------------------------- -->
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1613564834361-9436948817d1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&w=1600"
+                    class="d-block w-100" alt="Pizza">
+                <div class="carousel-caption d-none d-md-block text-light">
+                    <h5>Fast Delivery</h5>
+                    <p>Quick Delivery of Food to your Doorstep</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1589227365533-cee630bd59bd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&w=1600"
+                    class="d-block w-100" alt="Noodles">
+                <div class="carousel-caption d-none d-md-block text-light">
+                    <h5>Late Delivery Refund</h5>
+                    <p>Get Money and the Food if Delivery takes more than 30 minutes</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1621868402792-a5c9fa6866a3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&w=1600"
+                    class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-light">
+                    <h5>Veg and Non-Veg Options</h5>
+                    <p>Many Options to pick from, in Veg and Non-Veg</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1591820544897-6ab84f29145e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&w=1600"
+                    class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-light">
+                    <h5>Great Deals and Combos</h5>
+                    <p>Many Offers and Combos for you</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
+    <!-- -------------------------------- Footer -------------------------------- -->
+
+    <div class="footer">
+        <div class="footer_image">
+            <img src="https://img.freepik.com/free-vector/food-shopping-logo-template-design_460848-10299.jpg"
+                alt="Logo">
+            <p>Fast Foodzz</p>
+        </div>
+        <div class="Footer_info">
+            For More information on our Menu.Visit <a href="Menu.html">Our Menu</a><br>
+            For More information on our Deals.Visit <a href="Deal.html">Deals</a><br>
+            Write to us on <a href="Contact.html">Contact Us</a>
+        </div>
+    </div>
+
+</body>
+</html>
